@@ -10,11 +10,16 @@ The design is intended to send beam steering instructions(data) over a high spee
      - `Serial_interace`, `Deserial_interface`: This is allows verification components to access DUT signals using a virtual interface handle.
      - `Serial_monitor`, `Deserial_monitor`: This possesses a virtual interface handle with which it can monitor the events happening on the interface. It sees new transactions and then captures (cont'd) 
      - (Cont'd) information into a packet and sends it to the scoreboard.
-     - `Serial_Agent`, `Deserial_agent_A`,`Deserial_agent_B`: This is an intermediary container to hold driver, monitor and sequencer objects. `Serial_agent_B` receives stimulus output from
+     - `Serial_agent`, `Deserial_agent_A`,`Deserial_agent_B`: This is an intermediary container to hold driver, monitor and sequencer objects. `Serial_agent_A` receives stimulus output from
      - (Cont'd) `Serial_interace`.
+     - `Serial_sequencer`, `Deserial_sequencer`: This generated data transactions as class objects and sends it to the Driver for execution. `Serial_agent_A` leverages `Deserial_follow_sequence` to parameterize request and response item types for
+     - (Cont'd)`Deserial_sequencer`.
 
 -  The Bit Error Rate (BER) defines the percentage of received bits that are corrupted due to factors such as loss or noise. For this project, it should be  approximately 10^12
 - Project should be run on Vivado™ Edition - 2024.2
-- 
 
-![Transfer Architecture](https://github.com/user-attachments/assets/42fa0303-b6f5-4f76-8e46-fbd153972029)
+### System Architecture
+<img  align="center" src="https://github.com/user-attachments/assets/42fa0303-b6f5-4f76-8e46-fbd153972029" width="550px" />
+
+### UVM Testbench Framework
+<img  align="center" src="https://github.com/user-attachments/assets/c261ac6f-940f-44f9-b657-7ce6bacc6354" width="550px" />
